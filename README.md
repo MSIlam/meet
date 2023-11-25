@@ -52,3 +52,6 @@ Then I should see an error message
 @ Scenario: Add an App Shortcut to the Home Screen Given I can install the Meet App as a shortcut When I add the app to my device's home screen Then I should see the Meet App shortcut
 
 @ Scenario: Display Charts Visualizing Event Details Given I view the events When I explore the charts section Then I should see a chart with the number of upcoming events in each city.
+
+### Use of serverless functions
+Serverless functions in the Meet App will handle backend logic for features like filtering events, managing event details, adjusting event display numbers, and supporting offline functionality.
