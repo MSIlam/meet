@@ -39,11 +39,13 @@ Then I should see the expanded event details
 Given I can collapse an event to hide details
 When I click to collapse an event
 Then I should see the event details collapsed
+
 @ Scenario: Specify Number of Events Given I haven't specified a number When I view the events Then I should see 32 events displayed by default
 
 Given I can change the number of events displayed
 When I specify a different number of events
 Then I should see the specified number of events
+
 @ Scenario: Use the App When Offline Given there's no internet connection When I view the events Then I should see cached data
 
 Given there's no internet connection
