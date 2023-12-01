@@ -32,13 +32,13 @@ Feature: Filter Events by City As a user of the Meet App, I want to be able to f
 
 @ Scenario: Show/Hide Event Details Given an event element is collapsed by default When I view the events Then I should see collapsed event details
 
-Given I can expand an event to see details
-When I click to expand an event
-Then I should see the expanded event details
+- **Given** I can expand an event to see details
+- **When** I click to expand an event
+- **Then** I should see the expanded event details
 
-Given I can collapse an event to hide details
-When I click to collapse an event
-Then I should see the event details collapsed
+- **Given** I can collapse an event to hide details
+- **When** I click to collapse an event
+- **Then** I should see the event details collapsed
 
 @ Scenario: Specify Number of Events Given I haven't specified a number When I view the events Then I should see 32 events displayed by default
 
