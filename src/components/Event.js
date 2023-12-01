@@ -1,33 +1,26 @@
-import React, { useState } from "react";
-import Card from "react-bootstrap/Card";
-import Button from "react-bootstrap/Button";
+// src/components/Event.js
+
+import { useState } from "react";
 
 const Event = ({ event }) => {
   const [showDetails, setShowDetails] = useState(false);
-
-  if (!event || !event.summary) {
-    return null; // or handle the case when event is missing or doesn't have summary
-  }
   return (
-    <Card className="event-card">
-      <Card.Body>
-        {/* Event Title */}
-        <Card.Title>{event.summary}</Card.Title>
-        {/* Event Start Time */}
-        <Card.Text>
-          Start Time: {new Date(event.start.dateTime).toLocaleString()}
-        </Card.Text>
-        {/* Event Location */}
-        <Card.Text>Location: {event.location}</Card.Text>
-        {/* "Show Details" Button */}
-        <Button onClick={() => setShowDetails(!showDetails)}>
-          {showDetails ? "Hide Details" : "Show Details"}
-        </Button>
-        {showDetails === true ? (
-          <Card.Text>{event.description}</Card.Text>
-        ) : null}
-      </Card.Body>
-    </Card>
+    <li className="event">
+      <h2>{event && event.summary}</h2>
+      <p>{event && event.location}</p>
+      <p>{event && new Date(event.start.dateTime).toUTCString()}</p>
+      {showDetails ? (
+        <p className="details">{event && event.description}</p>
+      ) : null}
+      <button
+        className="details-btn"
+        onClick={() => {
+          showDetails ? setShowDetails(false) : setShowDetails(true);
+        }}
+      >
+        {showDetails ? "hide details" : "show details"}
+      </button>
+    </li>
   );
 };
 

@@ -1,28 +1,24 @@
-import React, { useState } from "react";
+// src/components/NumberOfEvents.js
 
-const NumberOfEvents = ({ onEventNumberChange }) => {
+import { useState } from "react";
+
+const NumberOfEvents = ({}) => {
   const [number, setNumber] = useState(32);
 
-  const handleNumberChange = (event) => {
+  const handleInputChanged = (event) => {
     const value = event.target.value;
     setNumber(value);
-
-    // If a callback function is provided, call it with the parsed integer value
-    if (onEventNumberChange) {
-      const intValue = parseInt(value, 10);
-      onEventNumberChange(isNaN(intValue) ? null : intValue);
-    }
   };
 
   return (
-    <div id="event-number">
-      <label htmlFor="numberInput">Number of Events:</label>
+    <div id="number-of-events">
+      <label htmlFor="number-of-events-input">Number of Events: </label>
       <input
-        type="number"
-        className="numberEvent"
-        placeholder="number of events"
+        type="text"
+        id="number-of-events-input"
+        className="number-of-events-input"
         value={number}
-        onChange={handleNumberChange}
+        onChange={handleInputChanged}
       />
     </div>
   );

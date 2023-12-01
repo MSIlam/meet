@@ -1,21 +1,36 @@
-import "./App.css";
 import CitySearch from "./components/CitySearch";
 import EventList from "./components/EventList";
-import mockData from "./mock-data";
 import NumberOfEvents from "./components/NumberOfEvents";
-import "bootstrap/dist/css/bootstrap.min.css";
+import { useEffect, useState } from "react";
+import { extractLocations, getEvents } from "./api";
+
+import "./App.css";
 
 const App = () => {
-  const allLocations = Array.from(
-    new Set(mockData.map((event) => event.location))
-  );
+  const [allLocations, setAllLocations] = useState([]);
+  const [currentNOE, setCurrentNOE] = useState(32);
+  const [events, setEvents] = useState([]);
+  const [currentCity, setCurrentCity] = useState("See all cities");
+
+  useEffect(() => {
+    fetchData();
+  }, [currentCity]);
+
+  const fetchData = async () => {
+    const allEvents = await getEvents();
+    const filteredEvents =
+      currentCity === "See all cities"
+        ? allEvents
+        : allEvents.filter((event) => event.location === currentCity);
+    setEvents(filteredEvents.slice(0, currentNOE));
+    setAllLocations(extractLocations(allEvents));
+  };
+
   return (
     <div className="App">
-      <h1>Meet App</h1>
-      <p>Choose your nearest city:</p>
-      <CitySearch allLocations={allLocations} />
+      <CitySearch allLocations={allLocations} setCurrentCity={setCurrentCity} />
       <NumberOfEvents />
-      <EventList events={mockData} />
+      <EventList events={events} />
     </div>
   );
 };

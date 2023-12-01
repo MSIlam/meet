@@ -1,27 +1,30 @@
-import React from "react";
-import { render, screen, fireEvent } from "@testing-library/react";
+import { render } from "@testing-library/react";
+import userEvent from "@testing-library/user-event";
 import NumberOfEvents from "../components/NumberOfEvents";
 
 describe("<NumberOfEvents /> component", () => {
-  test("contains an element with the role of the textbox", () => {
-    render(<NumberOfEvents />);
-    const textBoxElement = screen.getByPlaceholderText("number of events");
-    expect(textBoxElement).toBeInTheDocument();
+  let NumberOfEventsComponent;
+  beforeEach(() => {
+    NumberOfEventsComponent = render(<NumberOfEvents />);
   });
 
-  test("has a default value of 32", () => {
-    render(<NumberOfEvents />);
-    const textBoxElement = screen.getByPlaceholderText("number of events");
-    expect(textBoxElement).toHaveValue(32);
+  test("renders number of events text input", () => {
+    const numberTextBox = NumberOfEventsComponent.queryByRole("textbox");
+    expect(numberTextBox).toBeInTheDocument();
+    expect(numberTextBox).toHaveClass("number-of-events-input");
   });
 
-  test("changes value when user types in it", async () => {
-    render(<NumberOfEvents />);
-    const textBoxElement = screen.getByPlaceholderText("number of events");
+  test("default number is 32", async () => {
+    const numberTextBox = NumberOfEventsComponent.queryByRole("textbox");
+    expect(numberTextBox).toHaveValue("32");
+  });
 
-    // Simulate typing '50' into the textbox
-    await fireEvent.change(textBoxElement, { target: { value: "50" } });
+  test("number of events text box value changes when the user types in it", async () => {
+    const user = userEvent.setup();
+    const numberTextBox = NumberOfEventsComponent.queryByRole("textbox");
+    await user.type(numberTextBox, "123");
 
-    expect(textBoxElement).toHaveValue(50);
+    // 32 (the default value already written) + 123
+    expect(numberTextBox).toHaveValue("32123");
   });
 });
