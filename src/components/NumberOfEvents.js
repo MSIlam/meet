@@ -25,17 +25,23 @@ const NumberOfEvents = ({ setCurrentNOE }) => {
       }}
     >
       <label
-        htmlFor="number-of-events-input"
+        htmlFor="numberEvents"
         style={{ color: "Honeydew", marginBottom: "10px" }}
       >
         Number of Events:{" "}
       </label>
       <input
         type="text"
-        id="number-of-events-input"
+        id="number-of-events"
         className="number-of-events-input"
         value={number}
         onChange={handleInputChanged}
+        style={{
+          padding: "8px", // Added padding
+          // Added font size
+          border: "1px solid #ccc", // Added border
+          borderRadius: "4px", // Added border radius
+        }}
       />
     </div>
   );

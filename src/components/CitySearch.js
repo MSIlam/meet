@@ -53,17 +53,43 @@ const CitySearch = ({ allLocations, setCurrentCity }) => {
         value={query}
         onFocus={() => setShowSuggestions(true)}
         onChange={handleInputChanged}
+        style={{
+          padding: "8px", // Added padding
+          // Added font size
+          border: "1px solid #ccc", // Added border
+          borderRadius: "4px", // Added border radius
+        }}
       />
       {showSuggestions ? (
-        <ul className="suggestions">
+        <ul
+          className="suggestions"
+          style={{ listStyleType: "none", padding: 0 }}
+        >
           {suggestions.map((suggestion) => {
             return (
-              <li onClick={handleItemClicked} key={suggestion}>
+              <li
+                onClick={handleItemClicked}
+                key={suggestion}
+                style={{
+                  padding: "8px", // Added padding
+                  borderBottom: "1px solid #ccc", // Added border bottom
+                  cursor: "pointer", // Added cursor pointer
+                  color: "Honeydew",
+                }}
+              >
                 {suggestion}
               </li>
             );
           })}
-          <li key="See all cities" onClick={handleItemClicked}>
+          <li
+            key="See all cities"
+            onClick={handleItemClicked}
+            style={{
+              padding: "8px", // Added padding
+              cursor: "pointer", // Added cursor pointer
+              color: "Honeydew",
+            }}
+          >
             <b>See all cities</b>
           </li>
         </ul>
