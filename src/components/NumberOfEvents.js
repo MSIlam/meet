@@ -1,14 +1,22 @@
 // src/components/NumberOfEvents.js
 
 import { useState } from "react";
+import { toast } from "react-toastify";
 
 const NumberOfEvents = ({ setCurrentNOE }) => {
   const [number, setNumber] = useState(32);
+  const [error, setError] = useState("");
 
   const handleInputChanged = (event) => {
     const value = event.target.value;
+    if (isNaN(value) || value < 0) {
+      // setError("The value cannot be a negative number!");
+      toast("The value cannot be zero or negative!");
+      return;
+    }
     setNumber(value);
     setCurrentNOE(value);
+    setError("");
   };
 
   return (
@@ -43,6 +51,7 @@ const NumberOfEvents = ({ setCurrentNOE }) => {
           borderRadius: "4px", // Added border radius
         }}
       />
+      {error && <span className="errortxt">{error}</span>}
     </div>
   );
 };
