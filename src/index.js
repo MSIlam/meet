@@ -32,6 +32,8 @@ import * as serviceWorkerRegistration from "./serviceWorkerRegistration";
 import reportWebVitals from "./reportWebVitals";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./index.scss";
+import * as atatus from "atatus-spa";
+atatus.config("ccb9689e47b64a46ba311b709e95545b").install();
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(<App />);
