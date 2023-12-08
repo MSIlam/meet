@@ -11,7 +11,7 @@ const NumberOfEvents = ({ setCurrentNOE }) => {
     const value = event.target.value;
     if (isNaN(value) || value < 0) {
       // setError("The value cannot be a negative number!");
-      toast("The value cannot be zero or negative!");
+      toast("The value must be a positive number!");
       return;
     }
     setNumber(value);
