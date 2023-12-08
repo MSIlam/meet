@@ -8,6 +8,42 @@ import mockData from "./mock-data";
  * It will also remove all duplicates by creating another new array using the spread operator and spreading a Set.
  * The Set will remove all duplicates from the array.
  */
+
+const getToken = async (code) => {
+  const encodeCode = encodeURIComponent(code);
+  const response = await fetch(
+    "https://qt13d6qavg.execute-api.eu-central-1.amazonaws.com/dev/api/token" +
+      "/" +
+      encodeCode
+  );
+  const { access_token } = await response.json();
+  access_token && localStorage.setItem("access_token", access_token);
+
+  return access_token;
+};
+
+export const getAccessToken = async () => {
+  const accessToken = localStorage.getItem("access_token");
+
+  const tokenCheck = accessToken && (await checkToken(accessToken));
+
+  if (!accessToken || (tokenCheck && tokenCheck.error)) {
+    await localStorage.removeItem("access_token");
+    const searchParams = new URLSearchParams(window.location.search);
+    const code = await searchParams.get("code");
+    if (!code) {
+      const response = await fetch(
+        "https://qt13d6qavg.execute-api.eu-central-1.amazonaws.com/dev/api/get-auth-url"
+      );
+      const result = await response.json();
+      const { authUrl } = result;
+      return (window.location.href = authUrl);
+    }
+    return code && getToken(code);
+  }
+  return accessToken;
+};
+
 export const extractLocations = (events) => {
   const extractedLocations = events.map((event) => event.location);
   const locations = [...new Set(extractedLocations)];
@@ -36,20 +72,6 @@ const removeQuery = () => {
     window.history.pushState("", "", newurl);
   }
 };
-
-const getToken = async (code) => {
-  const encodeCode = encodeURIComponent(code);
-  const response = await fetch(
-    "https://qt13d6qavg.execute-api.eu-central-1.amazonaws.com/dev/api/token" +
-      "/" +
-      encodeCode
-  );
-  const { access_token } = await response.json();
-  access_token && localStorage.setItem("access_token", access_token);
-
-  return access_token;
-};
-
 // This function will fetch the list of all events
 
 export const getEvents = async () => {
@@ -71,26 +93,4 @@ export const getEvents = async () => {
       return result.events;
     } else return null;
   }
-};
-
-export const getAccessToken = async () => {
-  const accessToken = localStorage.getItem("access_token");
-
-  const tokenCheck = accessToken && (await checkToken(accessToken));
-
-  if (!accessToken || (tokenCheck && tokenCheck.error)) {
-    await localStorage.removeItem("access_token");
-    const searchParams = new URLSearchParams(window.location.search);
-    const code = await searchParams.get("code");
-    if (!code) {
-      const response = await fetch(
-        "https://qt13d6qavg.execute-api.eu-central-1.amazonaws.com/dev/api/get-auth-url"
-      );
-      const result = await response.json();
-      const { authUrl } = result;
-      return (window.location.href = authUrl);
-    }
-    return code && getToken(code);
-  }
-  return accessToken;
 };
