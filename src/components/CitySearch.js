@@ -62,8 +62,13 @@ const CitySearch = ({ allLocations, setCurrentCity }) => {
       />
       {showSuggestions ? (
         <ul
-          className="suggestions"
-          style={{ listStyleType: "none", padding: 0 }}
+          className="suggestions shadow"
+          style={{
+            listStyleType: "none",
+            padding: 0,
+            margin: "0",
+            top: "45px",
+          }}
         >
           {suggestions.map((suggestion) => {
             return (
