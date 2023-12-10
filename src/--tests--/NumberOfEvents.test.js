@@ -7,7 +7,10 @@ describe("<NumberOfEvents /> component", () => {
   beforeEach(() => {
     const mockSetCurrentNOE = jest.fn();
     NumberOfEventsComponent = render(
-      <NumberOfEvents setCurrentNOE={mockSetCurrentNOE} />
+      <NumberOfEvents
+        setCurrentNOE={mockSetCurrentNOE}
+        setErrorAlert={() => {}}
+      />
     );
   });
 
