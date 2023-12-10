@@ -16,7 +16,7 @@ const NumberOfEvents = ({ setCurrentNOE, setErrorAlert }) => {
     // }
     let infoText;
     if (isNaN(value) || value <= 0 || value > 32) {
-      infoText = "Text and negetive numbers are not allowed";
+      infoText = "Only positive numeric values upto 32 are allowed";
     } else {
       infoText = "";
       setCurrentNOE(value);
