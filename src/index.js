@@ -38,7 +38,7 @@ atatus.config("ccb9689e47b64a46ba311b709e95545b").install();
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(<App />);
 
-serviceWorkerRegistration.unregister();
+serviceWorkerRegistration.register();
 reportWebVitals();
 
 // import React from "react";
