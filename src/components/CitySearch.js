@@ -53,10 +53,11 @@ const CitySearch = ({ allLocations, setCurrentCity, setInfoAlert }) => {
         htmlFor="city-search-input"
         style={{ color: "Honeydew", marginBottom: "10px" }}
       >
-        Choose your nearest city:{" "}
+        Choose your nearest city:
       </label>
       <input
         type="text"
+        id="city-search-input"
         className="city"
         placeholder="Search for a city"
         value={query}
