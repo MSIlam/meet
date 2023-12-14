@@ -73,7 +73,6 @@ const removeQuery = () => {
   }
 };
 // This function will fetch the list of all events
-let NProgress;
 export const getEvents = async () => {
   if (window.location.href.startsWith("http://localhost")) {
     return mockData;
