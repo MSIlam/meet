@@ -78,6 +78,8 @@ const CitySearch = ({ allLocations, setCurrentCity, setInfoAlert }) => {
             padding: 0,
             margin: "0",
             top: "45px",
+            overflowY: "scroll",
+            height: "250px",
           }}
         >
           {suggestions.map((suggestion) => {
