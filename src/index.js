@@ -36,8 +36,12 @@ import * as atatus from "atatus-spa";
 atatus.config("ccb9689e47b64a46ba311b709e95545b").install();
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(<App />);
-
+root.render(
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>
+);
+// serviceWorkerRegistration.unregister();
 serviceWorkerRegistration.register();
 reportWebVitals();
 

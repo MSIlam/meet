@@ -41,7 +41,7 @@ const NumberOfEvents = ({ setCurrentNOE, setErrorAlert }) => {
       }}
     >
       <label
-        htmlFor="numberEvents"
+        htmlFor="number-of-events"
         style={{ color: "Honeydew", marginBottom: "10px" }}
       >
         Number of Events:
