@@ -124,7 +124,7 @@ const EventGenresChart = ({ events }) => {
           {`${(percent * 100).toFixed(0)}%`}
         </text>
         <text
-          x={x > cx ? x + 80 : x - 80} // Adjust the horizontal position of the genre name
+          x={x > cx ? x + 50 : x - 60} // Adjust the horizontal position of the genre name
           y={y}
           fill="Honeydew"
           textAnchor={x > cx ? "start" : "end"}
@@ -158,7 +158,14 @@ const EventGenresChart = ({ events }) => {
 
   return (
     <ResponsiveContainer width="99%" height={400}>
-      <PieChart>
+      <PieChart
+        margin={{
+          top: 20,
+          right: 20,
+          bottom: 60,
+          left: -20,
+        }}
+      >
         <Pie
           data={data}
           cx="50%"
