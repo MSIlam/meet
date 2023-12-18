@@ -1,7 +1,7 @@
 // src/components/NumberOfEvents.js
 
 import { useState } from "react";
-// import { toast } from "react-toastify";
+import { toast } from "react-toastify";
 
 const NumberOfEvents = ({ setCurrentNOE, setErrorAlert }) => {
   const [number, setNumber] = useState(32);
@@ -17,14 +17,13 @@ const NumberOfEvents = ({ setCurrentNOE, setErrorAlert }) => {
     let infoText;
     if (isNaN(value) || value <= 0 || value > 32) {
       infoText = "Only positive numeric values upto 32 are allowed";
+      toast.error(infoText);
     } else {
       infoText = "";
       setCurrentNOE(value);
     }
     setErrorAlert(infoText);
     setNumber(value);
-
-    // setError("");
   };
 
   return (
@@ -53,10 +52,13 @@ const NumberOfEvents = ({ setCurrentNOE, setErrorAlert }) => {
         value={number}
         onChange={handleInputChanged}
         style={{
+          marginLeft: "auto",
+          marginRight: "auto",
           padding: "8px", // Added padding
           // Added font size
           border: "1px solid #ccc", // Added border
           borderRadius: "4px", // Added border radius
+          width: "60px",
         }}
       />
     </div>

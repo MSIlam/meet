@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { toast } from "react-toastify";
 
 const CitySearch = ({ allLocations, setCurrentCity, setInfoAlert }) => {
   const [showSuggestions, setShowSuggestions] = useState(false);
@@ -22,6 +23,7 @@ const CitySearch = ({ allLocations, setCurrentCity, setInfoAlert }) => {
     let infoText;
     if (filteredLocations.length === 0) {
       infoText = "Your searched city is not in the list";
+      toast.error(infoText);
     } else {
       infoText = "";
     }

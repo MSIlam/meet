@@ -18,13 +18,16 @@
   }
 }
 
-.alerts-container {
+h3 {
+  color: honeydew
+}
+/* .alerts-container {
   position: fixed;
   top: 0px;
   left: 20px;
   width: 250px;
   z-index: 1000;
-}
+} */
 /* @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;

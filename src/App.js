@@ -5,7 +5,7 @@ import EventList from "./components/EventList";
 import NumberOfEvents from "./components/NumberOfEvents";
 import { useEffect, useState } from "react";
 import { extractLocations, getEvents } from "./api";
-import { ToastContainer } from "react-toastify";
+import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { InfoAlert, ErrorAlert, WarningAlert } from "./components/Alert";
 
@@ -19,15 +19,20 @@ const App = () => {
   const [infoAlert, setInfoAlert] = useState("");
   const [errorAlert, setErrorAlert] = useState("");
   const [warningAlert, setWarningAlert] = useState("");
-  // const [isOnline, setIsOnline] = useState(navigator.onLine);
+  const [warningDisplayed, setWarningDisplayed] = useState(false);
 
   useEffect(() => {
     if (navigator.onLine) {
       setWarningAlert("");
+      setWarningDisplayed(false);
     } else {
-      setWarningAlert(
-        "You are currently offline. The event list is not updated"
-      );
+      const warningText =
+        "You are currently offline. The event list is not updated";
+      setWarningAlert(warningText);
+      if (!warningDisplayed) {
+        toast.warning(warningText);
+        setWarningDisplayed(true);
+      }
     }
     fetchData();
   }, [currentCity, currentNOE]);
@@ -54,11 +59,6 @@ const App = () => {
       >
         MeetBIT
       </div>
-      <div className="alerts-container">
-        {infoAlert.length ? <InfoAlert text={infoAlert} /> : null}
-        {errorAlert.length ? <ErrorAlert text={errorAlert} /> : null}
-        {warningAlert.length ? <WarningAlert text={warningAlert} /> : null}
-      </div>
       <CitySearch
         allLocations={allLocations}
         setCurrentCity={setCurrentCity}
@@ -72,10 +72,21 @@ const App = () => {
         <EventGenresChart events={events} />
         <CityEventsChart allLocations={allLocations} events={events} />
       </div>
-      <EventList events={events} />
+      <div>
+        <div>
+          <h3 style={{ color: "Honeydew" }}>Upcoming Events</h3>
+        </div>
+        <EventList events={events} />
+      </div>
       <ToastContainer />
     </div>
   );
 };
 
 export default App;
+
+// <div className="alerts-container">
+//         {infoAlert.length ? <InfoAlert text={infoAlert} /> : null}
+//         {errorAlert.length ? <ErrorAlert text={errorAlert} /> : null}
+//         {warningAlert.length ? <WarningAlert text={warningAlert} /> : null}
+//       </div>

@@ -8,6 +8,7 @@ import {
   CartesianGrid,
   Tooltip,
   ResponsiveContainer,
+  Label,
 } from "recharts";
 
 const CityEventsChart = ({ allLocations, events }) => {
@@ -52,7 +53,15 @@ const CityEventsChart = ({ allLocations, events }) => {
           dataKey="count"
           name="Number of events"
           allowDecimals={false}
-        />
+        >
+          <Label
+            value="Events per City"
+            offset={0}
+            position="middle"
+            style={{ textAnchor: "middle" }}
+            angle={-90}
+          />
+        </YAxis>
         <Tooltip cursor={{ strokeDasharray: "3 3" }} />
         <Scatter name="A school" data={data} fill="#8884d8" />
       </ScatterChart>

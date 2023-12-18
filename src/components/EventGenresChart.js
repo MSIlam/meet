@@ -115,7 +115,7 @@ const EventGenresChart = ({ events }) => {
     return (
       <Fragment>
         <text
-          x={x + 15}
+          x={x}
           y={y}
           fill="Honeydew"
           textAnchor={x > cx ? "start" : "end"}
@@ -124,7 +124,7 @@ const EventGenresChart = ({ events }) => {
           {`${(percent * 100).toFixed(0)}%`}
         </text>
         <text
-          x={x > cx ? x + 100 : x - 100} // Adjust the horizontal position of the genre name
+          x={x > cx ? x + 80 : x - 80} // Adjust the horizontal position of the genre name
           y={y}
           fill="Honeydew"
           textAnchor={x > cx ? "start" : "end"}
@@ -166,7 +166,6 @@ const EventGenresChart = ({ events }) => {
           labelLine={false}
           label={renderCustomizedLabel}
           outerRadius={130}
-          fill="#8884d8"
           dataKey="value"
         >
           {data.map((entry, index) => (
@@ -181,3 +180,4 @@ const EventGenresChart = ({ events }) => {
 export default EventGenresChart;
 
 // <line x1={x} y1={y} x2={x + (x > cx ? 10 : 10)} y2={y} stroke="#666" />
+// fill="#8884d8"
