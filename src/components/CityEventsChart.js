@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+
 import {
   ScatterChart,
   Scatter,
@@ -14,7 +15,7 @@ const CityEventsChart = ({ allLocations, events }) => {
 
   useEffect(() => {
     setData(getData());
-  }, [`${data}`]);
+  }, [`${events}`]);
 
   const getData = () => {
     const data = allLocations.map((location) => {
@@ -48,7 +49,7 @@ const CityEventsChart = ({ allLocations, events }) => {
         />
         <YAxis
           type="number"
-          dataKey="countnumber"
+          dataKey="count"
           name="Number of events"
           allowDecimals={false}
         />
