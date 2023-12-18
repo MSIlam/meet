@@ -1,4 +1,5 @@
 import CitySearch from "./components/CitySearch";
+import CityEventsChart from "./components/CityEventsChart";
 import EventList from "./components/EventList";
 import NumberOfEvents from "./components/NumberOfEvents";
 import { useEffect, useState } from "react";
@@ -28,17 +29,6 @@ const App = () => {
       );
     }
     fetchData();
-    // const handleOnlineStatusChange = () => {
-    //   setIsOnline(navigator.onLine);
-    // };
-    // window.addEventListener("online", handleOnlineStatusChange);
-    // window.addEventListener("offline", handleOnlineStatusChange);
-
-    // return () => {
-    //   // Cleanup event listeners when component unmounts
-    //   window.removeEventListener("online", handleOnlineStatusChange);
-    //   window.removeEventListener("offline", handleOnlineStatusChange);
-    // };
   }, [currentCity, currentNOE]);
 
   const fetchData = async () => {
@@ -77,6 +67,7 @@ const App = () => {
         setCurrentNOE={setCurrentNOE}
         setErrorAlert={setErrorAlert}
       />
+      <CityEventsChart allLocations={allLocations} events={events} />
       <EventList events={events} />
       <ToastContainer />
     </div>
