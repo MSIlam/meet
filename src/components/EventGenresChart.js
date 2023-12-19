@@ -66,7 +66,8 @@ const EventGenresChart = ({ events }) => {
     <ResponsiveContainer
       className="pie-chart-container"
       width="99%"
-      height={400}
+      height={window.innerWidth > 750 ? 400 : 300}
+      style={{ margin: "auto" }}
     >
       <PieChart>
         <Pie
