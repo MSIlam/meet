@@ -14,13 +14,15 @@
 
 @media (max-width: 950px) {
   .charts-container {
-    grid-template-columns: 1fr
+    grid-template-columns: 1fr;
+    margin: 0 auto
   }
 }
 
 h3 {
   color: honeydew
 }
+
 /* .alerts-container {
   position: fixed;
   top: 0px;
