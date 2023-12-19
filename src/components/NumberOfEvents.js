@@ -9,11 +9,7 @@ const NumberOfEvents = ({ setCurrentNOE, setErrorAlert }) => {
 
   const handleInputChanged = (event) => {
     const value = event.target.value;
-    // if (isNaN(value) || value < 0) {
-    //   // setError("The value cannot be a negative number!");
-    //   // toast("The value must be a positive number!");
-    //   return;
-    // }
+
     let infoText;
     if (isNaN(value) || value <= 0 || value > 32) {
       infoText = "Only positive numeric values upto 32 are allowed";

@@ -78,10 +78,14 @@ const CitySearch = ({ allLocations, setCurrentCity, setInfoAlert }) => {
           style={{
             listStyleType: "none",
             padding: 0,
-            margin: "0",
-            top: "45px",
+            margin: 0,
+            top: "178px",
             overflowY: "scroll",
-            height: "250px",
+            height: "200px",
+            width: "200px",
+            position: "absolute",
+            zIndex: 2,
+            backgroundColor: "DarkSlateGray",
           }}
         >
           {suggestions.map((suggestion) => {
@@ -94,6 +98,13 @@ const CitySearch = ({ allLocations, setCurrentCity, setInfoAlert }) => {
                   borderBottom: "1px solid #ccc", // Added border bottom
                   cursor: "pointer", // Added cursor pointer
                   color: "Honeydew",
+                  transition: "background-color",
+                }}
+                onMouseEnter={(e) => {
+                  e.target.style.backgroundColor = "Teal"; // Set hover background color
+                }}
+                onMouseLeave={(e) => {
+                  e.target.style.backgroundColor = "transparent"; // Reset background color on mouse leave
                 }}
               >
                 {suggestion}
@@ -107,6 +118,13 @@ const CitySearch = ({ allLocations, setCurrentCity, setInfoAlert }) => {
               padding: "8px", // Added padding
               cursor: "pointer", // Added cursor pointer
               color: "Honeydew",
+              transition: "background-color",
+            }}
+            onMouseEnter={(e) => {
+              e.target.style.backgroundColor = "Teal"; // Set hover background color
+            }}
+            onMouseLeave={(e) => {
+              e.target.style.backgroundColor = "transparent"; // Reset background color on mouse leave
             }}
           >
             <b>See all cities</b>

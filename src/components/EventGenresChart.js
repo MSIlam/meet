@@ -1,5 +1,6 @@
 import { useState, useEffect, Fragment } from "react";
 import { PieChart, Pie, ResponsiveContainer, Cell } from "recharts";
+import "./EventGenresChart.css";
 
 const EventGenresChart = ({ events }) => {
   const colors = ["Crimson", "MidnightBlue", "Sienna", "Teal", "PaleVioletRed"];
@@ -62,7 +63,11 @@ const EventGenresChart = ({ events }) => {
   };
 
   return (
-    <ResponsiveContainer width="99%" height={400}>
+    <ResponsiveContainer
+      className="pie-chart-container"
+      width="99%"
+      height={400}
+    >
       <PieChart>
         <Pie
           data={data}
