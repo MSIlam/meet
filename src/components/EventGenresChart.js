@@ -33,7 +33,7 @@ const EventGenresChart = ({ events }) => {
           {percent > 0 && `${(percent * 100).toFixed(0)}%`}
         </text>
         <text
-          x={x > cx ? x + 55 : x - 55} // Adjust the horizontal position of the genre name
+          x={x > cx ? x + 58 : x - 58} // Adjust the horizontal position of the genre name
           y={y}
           fill="Honeydew"
           textAnchor={x > cx ? "start" : "end"}
