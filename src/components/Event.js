@@ -1,5 +1,6 @@
 // src/components/Event.js
 
+import moment from "moment";
 import { useState } from "react";
 import Card from "react-bootstrap/Card";
 
@@ -24,7 +25,8 @@ const Event = ({ event }) => {
             <Card.Title>{event && event.summary}</Card.Title>
             <Card.Text>{event && event.location}</Card.Text>
             <Card.Text>
-              {event && new Date(event.start.dateTime).toUTCString()}
+              {event &&
+                moment(event.start.dateTime).format("MMMM Do YYYY, h:mm:ss a")}
             </Card.Text>
             {showDetails ? (
               <p className="details">{event && event.description}</p>

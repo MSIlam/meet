@@ -30,7 +30,7 @@ const EventGenresChart = ({ events }) => {
           dominantBaseline="central"
           fontSize={window.innerWidth < 512 ? 12 : 16}
         >
-          {`${(percent * 100).toFixed(0)}%`}
+          {percent > 0 && `${(percent * 100).toFixed(0)}%`}
         </text>
         <text
           x={x > cx ? x + 55 : x - 55} // Adjust the horizontal position of the genre name
@@ -40,7 +40,7 @@ const EventGenresChart = ({ events }) => {
           dominantBaseline="central"
           fontSize={window.innerWidth < 512 ? 12 : 16}
         >
-          {data[index].name}
+          {percent > 0 && data[index].name}
         </text>
       </Fragment>
     );
