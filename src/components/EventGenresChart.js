@@ -80,7 +80,7 @@ const EventGenresChart = ({ events }) => {
           cy="50%"
           labelLine={false}
           label={renderCustomizedLabel}
-          outerRadius={130}
+          outerRadius={window.innerWidth < 512 ? 120 : 150}
           dataKey="value"
         >
           {data.map((entry, index) => (
