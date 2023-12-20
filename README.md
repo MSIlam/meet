@@ -99,6 +99,15 @@
 - The app must be monitored using an online performance monitoring tool.
 
 ### Use of serverless functions
-In the Meet app, serverless functions will be essential for managing authorization to access public calendar events via the Google Calendar API. Users must have proper authorization to fetch event data for display in the React app. Serverless functions serve as a streamlined solution compared to maintaining a complete server, efficiently handling the task of generating and delivering access tokens. This approach ensures secure interaction with the Google Calendar API. The implementation of these serverless functions will rely on AWS Lambda as the selected cloud-service provider, enhancing the app's scalability and cost efficiency in terms of architecture.
+In the Meet app, serverless functions is essential for managing authorization to access public calendar events via the Google Calendar API. Users must have proper authorization to fetch event data for display in the React app. Serverless functions serve as a streamlined solution compared to maintaining a complete server, efficiently handling the task of generating and delivering access tokens. This approach ensures secure interaction with the Google Calendar API. The implementation of these serverless functions will rely on AWS Lambda as the selected cloud-service provider, enhancing the app's scalability and cost efficiency in terms of architecture.
+
+### Tech stack
+- React
+- Jest
+- Jest-Cucumber
+- Puppeteer
+- React toastify
+- AWS lambda
+- Google Calender API
 
 ## Link: https://msilam.github.io/meet/
