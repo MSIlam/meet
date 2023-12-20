@@ -17,11 +17,8 @@
     grid-template-columns: 1fr;
   }
 }
-@media (max-width: 512px) {
-  .charts-container {
-    margin: 50px;
-  }
-}
+
+
 
 h3 {
   color: honeydew
