@@ -18,7 +18,7 @@ const EventGenresChart = ({ events }) => {
     const x = cx + radius * Math.cos(-midAngle * RADIAN);
     const y = cy + radius * Math.sin(-midAngle * RADIAN);
 
-    const shortName = data[index].name.substring(0, 3);
+    // const shortName = data[index].name.substring(0, 3);
 
     return (
       <Fragment>
@@ -28,6 +28,7 @@ const EventGenresChart = ({ events }) => {
           fill="Honeydew"
           textAnchor={x > cx ? "start" : "end"}
           dominantBaseline="central"
+          fontSize={window.innerWidth < 512 ? 12 : 16}
         >
           {`${(percent * 100).toFixed(0)}%`}
         </text>
@@ -39,7 +40,7 @@ const EventGenresChart = ({ events }) => {
           dominantBaseline="central"
           fontSize={window.innerWidth < 512 ? 12 : 16}
         >
-          {window.innerWidth < 512 ? shortName : data[index].name}
+          {data[index].name}
         </text>
       </Fragment>
     );
@@ -96,3 +97,4 @@ export default EventGenresChart;
 // <line x1={x} y1={y} x2={x + (x > cx ? 10 : 10)} y2={y} stroke="#666" />
 // fill="#8884d8"
 // {data[index].name}
+// {window.innerWidth < 512 ? shortName : data[index].name}
