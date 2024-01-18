@@ -100,13 +100,6 @@
 
 ### Use of serverless functions
 In the Meet app, serverless functions is essential for managing authorization to access public calendar events via the Google Calendar API. Users must have proper authorization to fetch event data for display in the React app. Serverless functions serve as a streamlined solution compared to maintaining a complete server, efficiently handling the task of generating and delivering access tokens. This approach ensures secure interaction with the Google Calendar API. The implementation of these serverless functions will rely on AWS Lambda as the selected cloud-service provider, enhancing the app's scalability and cost efficiency in terms of architecture.
-### Screenshots
-<p align="center">
-<img src="https://github.com/MSIlam/meet-app-mi/assets/43422503/eefe24bf-5c3c-460d-97a9-7dbec4881cea" alt="meet Screenshot 1" width="650" style="margin-right: 20px;">
-<img src="https://github.com/MSIlam/meet-app-mi/assets/43422503/14e6cef4-939a-4b4a-8ea1-f96c4aedee5e" alt="Chat Screenshot 3" width="500">
-<img src="https://github.com/MSIlam/meet-app-mi/assets/43422503/667c8224-84fe-46a1-8884-22cc57f385b6" alt="Chat Screenshot 2" width="150" style="margin-right: 20px;">
-
-</p>
 ### Tech stack
 - React
 - Jest
@@ -116,5 +109,13 @@ In the Meet app, serverless functions is essential for managing authorization to
 - AWS lambda
 - Google Calender API
 - Atatus
+### Screenshots
+<p align="center">
+<img src="https://github.com/MSIlam/meet-app-mi/assets/43422503/eefe24bf-5c3c-460d-97a9-7dbec4881cea" alt="meet Screenshot 1" width="650" style="margin-right: 20px;">
+<img src="https://github.com/MSIlam/meet-app-mi/assets/43422503/14e6cef4-939a-4b4a-8ea1-f96c4aedee5e" alt="Chat Screenshot 3" width="500">
+<img src="https://github.com/MSIlam/meet-app-mi/assets/43422503/667c8224-84fe-46a1-8884-22cc57f385b6" alt="Chat Screenshot 2" width="150" style="margin-right: 20px;">
+
+</p>
+
 
 ## Link: https://msilam.github.io/meet/
